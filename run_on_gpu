@@ -1,0 +1,3 @@
+#!/bin/bash
+
+PYOPENCL_CTX=":2" PYOPENCL_COMPILER_OUTPUT=1 python voxel_generator/
