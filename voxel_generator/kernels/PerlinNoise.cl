@@ -38,17 +38,3 @@ static double PerlinNoise_compute(const __global char *p, double x, double y) {
 
   return c1 + v * (c2 - c1);
 }
-
-__kernel void OctaveNoise_compute(const int c, __global const char *p, __global const double *x, __global const double *z, __global double *r) {
-  int g = get_global_id(0);
-
-  double result = 0;
-  int amp = 1;
-
-  for(int i = 0; i < c; i++) {
-    result += PerlinNoise_compute(p + (i * 512), x[g] / amp, z[g] / amp) * amp;
-    amp *= 2;
-  }
-
-  r[g] = result;
-}
