@@ -3,7 +3,7 @@ import pyopencl as cl
 import os
 import inspect
 
-KERNEL_PATH = os.path.join(os.path.dirname(os.path.abspath(inspect.stack()[0][1])), 'kernels')
+KERNEL_PATH = os.path.join(os.path.dirname(os.path.abspath(inspect.stack()[0][1])), '..', '..', 'kernels')
 
 class KernelLoader:
     def __init__(self, names):

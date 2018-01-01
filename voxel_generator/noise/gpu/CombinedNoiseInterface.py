@@ -3,8 +3,7 @@ import pyopencl as cl
 from os import path
 import math
 
-from KernelLoader import KernelLoader
-from noise import CombinedNoise, OctaveNoise, JavaRandom
+from .KernelLoader import KernelLoader
 
 def create_permutation_table(random):
     permutations = numpy.zeros(512, dtype=numpy.int8)
@@ -30,7 +29,7 @@ def create_octave_table(random, octaves):
 def index_1d_as_2d(array, world_x, x, z):
     return array[world_x * x + z]
 
-def compute(world_x, world_z, x_np, z_np, octave_count_1, octave_count_2, random):
+def combined_noise_compute(world_x, world_z, x_np, z_np, octave_count_1, octave_count_2, random):
     seed = 1
     total_values = world_x * world_z
 
